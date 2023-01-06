@@ -1,4 +1,5 @@
 import 'package:firebase_chat/core/models/auth_form_data.dart';
+import 'package:firebase_chat/core/services/auth/auth_mock_service.dart';
 import 'package:firebase_chat/widgets/auth_form.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,18 @@ class _AuthScreenState extends State<AuthScreen> {
       setState(() => isLoading = true);
 
       if (formData.isLogin) {
-      } else {}
+        await AuthMockService().login(
+          formData.email,
+          formData.password,
+        );
+      } else {
+        await AuthMockService().signUp(
+          formData.name,
+          formData.email,
+          formData.password,
+          formData.image,
+        );
+      }
     } finally {
       setState(() => isLoading = false);
     }

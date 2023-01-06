@@ -43,7 +43,7 @@ class AuthMockService implements AuthService {
       id: Random().nextDouble().toString(),
       name: name,
       email: email,
-      imageUrl: image!.path,
+      imageUrl: image?.path ?? 'assets/images',
     );
 
     _users.putIfAbsent(email, () => newUser);
