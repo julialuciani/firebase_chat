@@ -1,4 +1,4 @@
-import 'package:firebase_chat/screens/models/auth_form_data.dart';
+import 'package:firebase_chat/core/models/auth_form_data.dart';
 import 'package:firebase_chat/widgets/auth_form.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +12,15 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   bool isLoading = false;
 
-  void _handleSumbit(AuthFormData formData) {
-    setState(() => isLoading = true);
-    debugPrint(formData.email);
-    setState(() => isLoading = false);
+  Future<void> _handleSumbit(AuthFormData formData) async {
+    try {
+      setState(() => isLoading = true);
+
+      if (formData.isLogin) {
+      } else {}
+    } finally {
+      setState(() => isLoading = false);
+    }
   }
 
   @override
