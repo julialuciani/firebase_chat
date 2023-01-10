@@ -38,20 +38,14 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 60,
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AuthForm(
-                  onSubmit: _handleSumbit,
-                ),
-              ],
+            child: AuthForm(
+              onSubmit: _handleSumbit,
             ),
           ),
           if (isLoading)

@@ -48,6 +48,7 @@ class _AuthFormState extends State<AuthForm> {
     return Form(
       key: _formKey,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _formData.isSignUp
               ? UserImagePicker(onImagepick: _handleImagePick)
@@ -101,7 +102,6 @@ class _AuthFormState extends State<AuthForm> {
               return null;
             },
           ),
-          const SizedBox(height: 10),
           TextButton(
             onPressed: () {
               setState(() {
