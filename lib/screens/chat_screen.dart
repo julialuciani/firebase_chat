@@ -1,4 +1,6 @@
-import 'package:firebase_chat/core/services/auth/auth_mock_service.dart';
+import 'package:firebase_chat/core/services/auth/auth_service.dart';
+import 'package:firebase_chat/widgets/messages.dart';
+import 'package:firebase_chat/widgets/new_messages.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -7,17 +9,46 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text("chat"),
-          TextButton(
-            onPressed: () {
-              AuthMockService().logout();
+      appBar: AppBar(
+        title: const Text("Chat"),
+        centerTitle: true,
+        actions: [
+          DropdownButton(
+            autofocus: false,
+            icon: const Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
+            items: [
+              DropdownMenuItem(
+                  value: "logout",
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.exit_to_app,
+                        color: Colors.indigo,
+                      ),
+                      SizedBox(width: 10),
+                      Text("Exit")
+                    ],
+                  ))
+            ],
+            onChanged: (value) {
+              if (value == "logout") {
+                AuthService().logout();
+              }
             },
-            child: const Text("Logout"),
           ),
         ],
+      ),
+      body: SafeArea(
+        child: Center(
+            child: Column(
+          children: const [
+            Expanded(child: Messages()),
+            NewMessages(),
+          ],
+        )),
       ),
     );
   }
