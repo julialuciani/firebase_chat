@@ -44,9 +44,10 @@ class ChatScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
             child: Column(
-          children: const [
-            Expanded(child: Messages()),
-            NewMessages(),
+          children: [
+            Container(),
+            const Expanded(child: Messages()),
+            const NewMessages(),
           ],
         )),
       ),
