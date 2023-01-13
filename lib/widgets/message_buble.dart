@@ -68,6 +68,9 @@ class MessageBuble extends StatelessWidget {
                 color: belongsToCurrentUser ? Colors.indigo : Colors.pink,
               ),
               child: Column(
+                crossAxisAlignment: belongsToCurrentUser
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
                 children: [
                   Text(message.userName),
                   Text(message.text),
