@@ -16,7 +16,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Future<void> _handleSumbit(AuthFormData formData) async {
     try {
       setState(() => isLoading = true);
-
+      if (!mounted) return;
       if (formData.isLogin) {
         await AuthService().login(
           formData.email,
@@ -31,6 +31,7 @@ class _AuthScreenState extends State<AuthScreen> {
         );
       }
     } finally {
+      if (!mounted) return;
       setState(() => isLoading = false);
     }
   }
