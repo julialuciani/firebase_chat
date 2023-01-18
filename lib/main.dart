@@ -1,5 +1,7 @@
-import 'package:firebase_chat/screens/auth_screen.dart';
+import 'package:firebase_chat/core/services/auth/notifications/push_notification_service.dart';
+import 'package:firebase_chat/screens/auth_or_app_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,25 +12,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.indigo,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ChatNotificationService(),
         ),
-        debugShowCheckedModeBanner: false,
-        home: const AuthScreen());
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-      ),
-      body: Container(),
+      ],
+      child: MaterialApp(
+          theme: ThemeData(
+            primarySwatch: Colors.indigo,
+          ),
+          debugShowCheckedModeBanner: false,
+          home: const AuthOrAppScreen()),
     );
   }
 }

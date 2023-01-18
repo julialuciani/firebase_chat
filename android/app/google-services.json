@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "426901113626",
+    "project_id": "firabase-chat-a7bb3",
+    "storage_bucket": "firabase-chat-a7bb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426901113626:android:c1254e102f8fb798087aa3",
+        "android_client_info": {
+          "package_name": "com.julia.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426901113626-0rjrqr8s2bcs9er8f78gtgurlu569d0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwZim8-AlIUvOAFfwH0gxqA6cNZaYjpFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426901113626-0rjrqr8s2bcs9er8f78gtgurlu569d0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

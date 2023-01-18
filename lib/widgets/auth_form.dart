@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:firebase_chat/widgets/user_image_picker.dart';
 import 'package:flutter/material.dart';
 
-import 'package:firebase_chat/screens/models/auth_form_data.dart';
+import 'package:firebase_chat/core/models/auth_form_data.dart';
 
 class AuthForm extends StatefulWidget {
   final void Function(AuthFormData) onSubmit;
@@ -48,6 +48,7 @@ class _AuthFormState extends State<AuthForm> {
     return Form(
       key: _formKey,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _formData.isSignUp
               ? UserImagePicker(onImagepick: _handleImagePick)
@@ -101,7 +102,6 @@ class _AuthFormState extends State<AuthForm> {
               return null;
             },
           ),
-          const SizedBox(height: 10),
           TextButton(
             onPressed: () {
               setState(() {
