@@ -30,15 +30,22 @@ class _AuthScreenState extends State<AuthScreen> {
           formData.image,
         );
       }
+    } catch (e) {
+      debugPrint(e.toString());
     } finally {
-      if (!mounted) return;
-      setState(() => isLoading = false);
+      debugPrint("Youre done");
+      // if (!mounted) return;
+      setState(() {
+        isLoading = false;
+        formData.toggleAuthMode();
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Padding(
